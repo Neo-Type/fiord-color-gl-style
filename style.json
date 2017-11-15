@@ -304,6 +304,32 @@
       }
     },
     {
+      "id": "housenumber",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "housenumber",
+      "minzoom": 17,
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ],
+      "layout": {
+        "text-field": "{housenumber}",
+        "text-size": 10,
+        "text-font": [
+          "Metropolis Regular",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
+        ]
+      },
+      "paint": {
+        "text-color": "rgba(140, 140, 140, 1)",
+        "text-halo-color": "rgba(33, 33, 33, 1)",
+        "text-halo-width": 0.5
+      }
+    },
+    {
       "id": "tunnel_motorway_casing",
       "type": "line",
       "metadata": {
@@ -339,7 +365,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(86, 86, 86, 1)",
+        "line-color": "rgba(62, 62, 62, 1)",
         "line-width": {
           "base": 1.4,
           "stops": [
@@ -357,6 +383,10 @@
             ]
           ]
         },
+        "line-dasharray": [
+          0.5,
+          0.25
+        ],
         "line-opacity": 1
       }
     },
@@ -396,7 +426,19 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(41, 41, 41, 1)",
+        "line-color": {
+          "base": 1,
+          "stops": [
+            [
+              5.8,
+              "rgba(224, 224, 224, 1)"
+            ],
+            [
+              6,
+              "rgba(47, 47, 47, 1)"
+            ]
+          ]
+        },
         "line-width": {
           "base": 1.4,
           "stops": [
@@ -1113,6 +1155,135 @@
           3,
           3
         ]
+      }
+    },
+    {
+      "id": "highway_motorway_bridge_casing",
+      "type": "line",
+      "metadata": {
+        "mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"
+      },
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 6,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "all",
+          [
+            "==",
+            "brunnel",
+            "bridge"
+          ],
+          [
+            "==",
+            "class",
+            "motorway"
+          ]
+        ]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(62, 62, 62, 1)",
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [
+              5.8,
+              0
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              20,
+              40
+            ]
+          ]
+        },
+        "line-dasharray": [
+          2,
+          0
+        ],
+        "line-opacity": 1
+      }
+    },
+    {
+      "id": "highway_motorway_bridge_inner",
+      "type": "line",
+      "metadata": {
+        "mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"
+      },
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 6,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "all",
+          [
+            "==",
+            "brunnel",
+            "bridge"
+          ],
+          [
+            "==",
+            "class",
+            "motorway"
+          ]
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": {
+          "base": 1,
+          "stops": [
+            [
+              5.8,
+              "rgba(224, 224, 224, 1)"
+            ],
+            [
+              6,
+              "rgba(47, 47, 47, 1)"
+            ]
+          ]
+        },
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [
+              4,
+              2
+            ],
+            [
+              6,
+              1.3
+            ],
+            [
+              20,
+              30
+            ]
+          ]
+        }
       }
     },
     {
